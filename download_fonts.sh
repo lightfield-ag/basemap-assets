@@ -45,8 +45,8 @@ download_font_ranges "Lato Light,Noto Sans Regular" "Lato%20Light%2CNoto%20Sans%
 # ["Lato Semi Bold", "Noto Sans Bold"] - City labels, Country labels, Village labels
 download_font_ranges "Lato Semi Bold,Noto Sans Bold" "Lato%20Semi%20Bold%2CNoto%20Sans%20Bold"
 
-# ["Lato Semi Bold Italic", "Noto Sans Italic"] - Harbor, Mall
-download_font_ranges "Lato Semi Bold Italic,Noto Sans Italic" "Lato%20Semi%20Bold%20Italic%2CNoto%20Sans%20Italic"
+# ["Lato Semi Bold Italic", "Noto Sans Bold"] - Harbor, Mall
+download_font_ranges "Lato Semi Bold Italic,Noto Sans Bold" "Lato%20Semi%20Bold%20Italic%2CNoto%20Sans%20Bold"
 
 # ["Open Sans Semibold", "Noto Sans Bold"] - Shop, Food, Cultural
 download_font_ranges "Open Sans Semibold,Noto Sans Bold" "Open%20Sans%20Semibold%2CNoto%20Sans%20Bold"

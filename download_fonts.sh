@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to download and upload font PBF files
+# Script to download font PBF files for combinations used in the style specification
 
 # Create temporary download directory
 mkdir -p fonts
@@ -34,41 +34,54 @@ download_font_ranges() {
     done
 }
 
-# Lato Regular,Noto Sans Regular
+# Download all font combinations referenced in the style specification:
+
+# ["Lato Regular", "Noto Sans Regular"] - River labels, Lakeline labels, Airport labels
 download_font_ranges "Lato Regular,Noto Sans Regular" "Lato%20Regular%2CNoto%20Sans%20Regular"
 
-# Lato Light,Noto Sans Regular
+# ["Lato Light", "Noto Sans Regular"] - Ocean labels
 download_font_ranges "Lato Light,Noto Sans Regular" "Lato%20Light%2CNoto%20Sans%20Regular"
 
-# Lato Semi Bold,Noto Sans Bold
+# ["Lato Semi Bold", "Noto Sans Bold"] - City labels, Country labels, Village labels
 download_font_ranges "Lato Semi Bold,Noto Sans Bold" "Lato%20Semi%20Bold%2CNoto%20Sans%20Bold"
 
-# Lato Semi Bold Italic,Noto Sans Bold
-download_font_ranges "Lato Semi Bold Italic,Noto Sans Bold" "Lato%20Semi%20Bold%20Italic%2CNoto%20Sans%20Bold"
-
-# Lato Semi Bold Italic,Noto Sans Regular
-download_font_ranges "Lato Semi Bold Italic,Noto Sans Regular" "Lato%20Semi%20Bold%20Italic%2CNoto%20Sans%20Regular"
-
-# Lato Semi Bold Italic,Noto Sans Italic
+# ["Lato Semi Bold Italic", "Noto Sans Italic"] - Harbor, Mall
 download_font_ranges "Lato Semi Bold Italic,Noto Sans Italic" "Lato%20Semi%20Bold%20Italic%2CNoto%20Sans%20Italic"
 
-# Noto Sans Regular
-download_font_ranges "Noto Sans Regular" "Noto%20Sans%20Regular"
-
-# Open Sans Semibold,Noto Sans Bold
+# ["Open Sans Semibold", "Noto Sans Bold"] - Shop, Food, Cultural
 download_font_ranges "Open Sans Semibold,Noto Sans Bold" "Open%20Sans%20Semibold%2CNoto%20Sans%20Bold"
 
-# Open Sans Bold Italic,Noto Sans Regular
-download_font_ranges "Open Sans Bold Italic,Noto Sans Regular" "Open%20Sans%20Bold%20Italic%2CNoto%20Sans%20Regular"
-
-# Open Sans Regular,Noto Sans Regular
+# ["Open Sans Regular", "Noto Sans Regular"] - Bus Stop, Ferry, Health
 download_font_ranges "Open Sans Regular,Noto Sans Regular" "Open%20Sans%20Regular%2CNoto%20Sans%20Regular"
 
-# Open Sans Semibold Italic,Noto Sans Regular
+# ["Open Sans Bold", "Noto Sans Bold"] - Bus station, Train, Zoo
+download_font_ranges "Open Sans Bold,Noto Sans Bold" "Open%20Sans%20Bold%2CNoto%20Sans%20Bold"
+
+# ["Open Sans Italic", "Noto Sans Italic"] - Major airport labels
+download_font_ranges "Open Sans Italic,Noto Sans Italic" "Open%20Sans%20Italic%2CNoto%20Sans%20Italic"
+
+# ["Open Sans Semibold Italic", "Noto Sans Regular"] - Education, Sport
 download_font_ranges "Open Sans Semibold Italic,Noto Sans Regular" "Open%20Sans%20Semibold%20Italic%2CNoto%20Sans%20Regular"
 
-# Open Sans Semibold Italic,Noto Sans Bold
-download_font_ranges "Open Sans Semibold Italic,Noto Sans Bold" "Open%20Sans%20Semibold%20Italic%2CNoto%20Sans%20Bold"
+# Single fonts that are used as fallbacks
+download_font_ranges "Noto Sans Regular" "Noto%20Sans%20Regular"
+download_font_ranges "Noto Sans Bold" "Noto%20Sans%20Bold"
+download_font_ranges "Noto Sans Italic" "Noto%20Sans%20Italic"
 
-# Open Sans Italic,Noto Sans Italic
-download_font_ranges "Open Sans Italic,Noto Sans Italic" "Open%20Sans%20Italic%2CNoto%20Sans%20Italic"
+# Create fonts.json with all fonts used in the style
+cat > fonts.json << 'EOL'
+[
+  "Lato Regular",
+  "Lato Light",
+  "Lato Semi Bold",
+  "Lato Semi Bold Italic",
+  "Noto Sans Regular",
+  "Noto Sans Bold",
+  "Noto Sans Italic",
+  "Open Sans Regular",
+  "Open Sans Semibold",
+  "Open Sans Bold",
+  "Open Sans Italic",
+  "Open Sans Semibold Italic"
+]
+EOL

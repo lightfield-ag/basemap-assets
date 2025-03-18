@@ -4,8 +4,14 @@
 # This script downloads all possible font/range combinations
 # and saves files with human-readable directory names
 
-# MapTiler API key from the style specification
-API_KEY="NzxHDluOAR0TNQ2VJpdr"
+# Prompt for MapTiler API key
+read -p "Please enter your MapTiler API key: " API_KEY
+
+# Validate that API key is not empty
+if [ -z "$API_KEY" ]; then
+  echo "Error: API key cannot be empty. Exiting."
+  exit 1
+fi
 
 # Base URL from the style specification
 BASE_URL="https://api.maptiler.com/fonts"

@@ -1,7 +1,15 @@
 #!/bin/bash
 
+# Prompt for MapTiler API key
+read -p "Please enter your MapTiler API key: " API_KEY
+
+# Validate that API key is not empty
+if [ -z "$API_KEY" ]; then
+  echo "Error: API key cannot be empty. Exiting."
+  exit 1
+fi
+
 # Configuration
-API_KEY="NzxHDluOAR0TNQ2VJpdr"
 SPRITE_BASE_URL="https://api.maptiler.com/maps/7f81d53f-6bc3-46dd-be8b-8d46bea2a0e0/sprite"
 OUTPUT_DIR="./sprites"
 
